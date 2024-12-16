@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class TestotomasyonuPage {
 
-    public TestotomasyonuPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public TestotomasyonuPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(id = "global-search")
@@ -22,5 +22,20 @@ public class TestotomasyonuPage {
 
     @FindBy(xpath = "//*[@*=' heading-sm mb-4']")
     public WebElement ilkUrunIsimText;
+
+    @FindBy(xpath = "(//*[@*='menu-icon-text'])[1]")
+    public WebElement accountlinkButton;
+
+    @FindBy(id = "email")
+    public WebElement emailKutusu;
+
+    @FindBy(id = "password")
+    public WebElement passwordKutusu;
+
+    @FindBy(id = "submitlogin")
+    public WebElement signInButton;
+
+    @FindBy(xpath = "//span[.='Logout']")
+    public WebElement LogoutButton;
 
 }
