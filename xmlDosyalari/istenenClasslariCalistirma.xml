@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke Test Suite">
+    <test name="Smoke Test">
+        <classes>
+            <class name="tests.day03_TestNGAssertions.C01_CokluAssertion"></class>
+            <class name="tests.day03_TestNGAssertions.C02_SoftAssertion"></class>
+            <class name="tests.day03_TestNGAssertions.C03_SoftAssert"></class>
+        </classes>
+    </test>
+</suite>
