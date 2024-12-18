@@ -1,0 +1,45 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- verbose 1 den 10 kadar değer verebilirsin testlerin sağladığı logların ayrıntı miktarını belirler.
+     Paralel çalıştırma için
+     suite tag'ına 2 tane attribute eklememiz gerekiyor
+     thread-count: aynı anda kaç browser'ın çalışcağını belirler
+     parallel: çalışacak browserlar arasında görev paylaşım seviyesini belirler
+
+     method seçilirse: her browser bir method'u çalıştırmaya baslar,
+                       method'u bitiren yeni bir method alır
+
+                       Bu secimin negatif tarafı birbirine bağlı method'lar varsa
+                       bu method'ları farklı browser'lar çalıştırmak isteyebilir
+                       bu da testlerin FAILED olmasına sebep olur
+
+     diğer alternatifler class ve test bazında paylaşımdır
+     en doğru secim test seviyesinde paylasım olacaktır
+
+     Çalışacak browserların mumkun olduğunca esit iş yukune sahip olması
+     ve mümkün olduğunca aynı surede işlerini bitirmeleri için
+     çalısacak class'ları biz browser'lara göre farklı testler olarak hazırlayabiliriz
+
+     kullanılması zorunlu olmayan verbose attribute'u
+     konsolda yazdırılan açıklama miktarını belirler
+     1 en az açıklama
+     10 en cok açıklama olmak üzere
+     istenen değer yazılabilir-->
+
+<suite name="Testleri paralel çalıştırma" thread-count="2" parallel="tests" verbose="4">
+
+    <test name="Test1">
+        <classes>
+            <class name="tests.day01_testNGFramework.C04_Priority"></class>
+            <class name="tests.day01_testNGFramework.C06_PageClassKullanimi"></class>
+            <class name="tests.day02_testNGFramework.C02_DropdownTesti"></class>
+        </classes>
+    </test>
+    <test name="Test2">
+        <classes>
+            <class name="tests.day02_testNGFramework.C04_PositiveLoginTesti"></class>
+            <class name="tests.day02_testNGFramework.C05_DinamikNegativeLoginTesti"></class>
+            <class name="tests.day03_TestNGAssertions.C02_SoftAssertion"></class>
+        </classes>
+    </test>
+</suite>

@@ -22,7 +22,7 @@ public class C02_SoftAssertion {
         TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
         testotomasyonuPage.aramaKutusu.sendKeys(ConfigReader.getProperty("toAranacakKelime") + Keys.ENTER);
         String actualSonuc = testotomasyonuPage.aramaSonucElementi.getText();
-        String unExpectedSonuc = ConfigReader.getProperty("toUnExpectedSonuc");
+        String unExpectedSonuc = ConfigReader.getProperty("toUnexpectedSonuc");
         softAssert.assertNotEquals(actualSonuc, unExpectedSonuc, "istenen ürün bulunamadı");
 
         // 3- ilk ürüne tıklayıp ürün isminde case sensitive olmadan "phone" bulunduğunu test edin

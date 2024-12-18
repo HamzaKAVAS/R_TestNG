@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+      TestNG bizim hangi class/package/method'ları çalıştırmak istediğimizi bilemez
+      MUTLAKA kendi seçimlerimizi TestNG'ye söylemeliyiz
+
+      seçimlerimizi TestNG xml dosyasına iletmek için de
+      2 alternatifimiz var
+
+      1- istediğimiz class/package/method'ları hiyerarşiye uygun olarak
+         .xml dosyasına ekleyebiliriz
+
+      2- her bir method'a hangi testlerde çalışacağını da grup olarak ekleyebiliriz
+-->
+
+<suite name="Grup çalıştırma Suite">
+    <test name="Grup çalıştırma">
+        <!-- Grup çalıştırma için hangi grupların çalışıp çalışmayacağını söylüyoruz -->
+        <groups>
+            <run>
+                <include name="smoke"></include>
+                <include name="E2E"></include>
+            </run>
+        </groups>
+        <!-- sonra bu grupları nerede bulacağını soyluyoruz -->
+        <packages>
+            <package name="tests.*"></package>
+        </packages>
+    </test>
+</suite>

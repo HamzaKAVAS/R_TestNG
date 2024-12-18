@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- E2E testi olarak day14 package'ini çalıştırın
+     NOT = eğer tüm package'ları çalıştırmamız istenirse
+           package ismi olarak "tests.*" yazabilirsiniz-->
+
+<suite name="E2E suite">
+    <test name="E2E Testi">
+        <packages>
+            <package name="tests.day04_htmlReports"></package>
+        </packages>
+    </test>
+</suite>

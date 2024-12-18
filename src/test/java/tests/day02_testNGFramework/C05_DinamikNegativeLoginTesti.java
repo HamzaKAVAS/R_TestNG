@@ -30,7 +30,7 @@ public class C05_DinamikNegativeLoginTesti {
 
         // 3- 3 farkli test method’u olusturun.
         //  - gecerli email, gecersiz password
-        testotomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecerliEMail"));
+        testotomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecerliEmail"));
         testotomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecersizPassword"));
 
         // 4- Login butonuna basarak login olmayi deneyin
