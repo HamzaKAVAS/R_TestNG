@@ -18,15 +18,19 @@
        bu döngü tüm class'ların calışma mantığı dısında olacağı için
        cross browser testler framework'deki tüm class'lar için DEĞİL
        Özel olarak hazırlanmış, SINIRLI SAYIDA test için çalıştırılır
-
-
  -->
 
 <suite name="Cross Browser Calistirma">
     <test name="Chrome ile calışacak classlar">
-
+        <parameter name="kullanilacakBrowser" value="chrome"></parameter>
+        <packages>
+            <package name="tests.day05_crossBrowserCalistirilacakTestler"></package>
+        </packages>
     </test>
     <test name="Edge ile calısacak classlar">
-
+        <parameter name="kullanilacakBrowser" value="edge"></parameter>
+        <packages>
+            <package name="tests.day05_crossBrowserCalistirilacakTestler"></package>
+        </packages>
     </test>
 </suite>
