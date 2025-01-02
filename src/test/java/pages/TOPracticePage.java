@@ -19,5 +19,14 @@ public class TOPracticePage {
     @FindBy(xpath = "//*[@*='panel-list']")
     public List<WebElement> categoryList;
 
+    @FindBy(className = "product-count-text")
+    public WebElement aramaSonucuElementi;
+
+    @FindBy(xpath = "(//*[@*='lazy'])[1]")
+    public WebElement ilkUrunResmiElementi;
+
+    @FindBy(xpath = "//*[@*=' heading-sm mb-4']")
+    public WebElement ilkUrunTextElementi;
+
 
 }

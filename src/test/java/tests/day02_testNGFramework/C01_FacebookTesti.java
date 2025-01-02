@@ -3,7 +3,7 @@ package tests.day02_testNGFramework;
 import com.github.javafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.FacebookPages;
+import pages.FacebookPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -24,14 +24,14 @@ public class C01_FacebookTesti {
               // **** FacebookPages'da locate yapıldı ****
 
         // 3- Faker class’ini kullanarak email ve sifre degerlerini yazdirip, giris butonuna basin
-        FacebookPages facebookPages = new FacebookPages();
+        FacebookPage facebookPage = new FacebookPage();
         Faker faker = new Faker();
-        facebookPages.emailBox.sendKeys(faker.internet().emailAddress());
-        facebookPages.passwordBox.sendKeys(faker.internet().password());
-        facebookPages.loginButton.click();
+        facebookPage.emailBox.sendKeys(faker.internet().emailAddress());
+        facebookPage.passwordBox.sendKeys(faker.internet().password());
+        facebookPage.loginButton.click();
 
         // 4- Basarili giris yapilamadigini test edin
-        Assert.assertTrue(facebookPages.nextPageLoginButton.isDisplayed());
+        Assert.assertTrue(facebookPage.nextPageLoginButton.isDisplayed());
         ReusableMethods.bekle(2);
         Driver.quitDriver();
     }
