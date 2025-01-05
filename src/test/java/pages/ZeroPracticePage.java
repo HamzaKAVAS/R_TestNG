@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class ZeroPracticePage {
 
-    public ZeroPracticePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public ZeroPracticePage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(id = "signin_button")
@@ -31,5 +31,14 @@ public class ZeroPracticePage {
 
     @FindBy(id = "sp_amount")
     public WebElement amountKutusu;
+
+    @FindBy(id = "sp_date")
+    public WebElement dateKutusu;
+
+    @FindBy(id = "pay_saved_payees")
+    public WebElement payButton;
+
+    @FindBy(id = "alert_content")
+    public WebElement warningText;
 
 }

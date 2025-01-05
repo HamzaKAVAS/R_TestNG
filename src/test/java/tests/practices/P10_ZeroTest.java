@@ -1,9 +1,11 @@
 package tests.practices;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ZeroPracticePage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class P10_ZeroTest {
 
@@ -20,7 +22,7 @@ public class P10_ZeroTest {
     // 11. “The payment was successfully submitted.” mesajinin ciktigini test edin
 
     @Test
-    public void zeroTesti(){
+    public void zeroTesti() {
         // 1. http://zero.webappsecurity.com sayfasina gidin
         Driver.getDriver().get(ConfigReader.getProperty("zeroUrl"));
         ZeroPracticePage zeroPracticePage = new ZeroPracticePage();
@@ -48,9 +50,15 @@ public class P10_ZeroTest {
         zeroPracticePage.amountKutusu.sendKeys("50");
 
         // 9. tarih kismina “2023-09-10” yazdirin
-        // 10. Pay buttonuna tiklayin
-        // 11. “The payment was successfully submitted.” mesajinin ciktigini test edin
+        zeroPracticePage.dateKutusu.sendKeys("2023-09-10");
 
+        // 10. Pay buttonuna tiklayin
+        zeroPracticePage.payButton.click();
+
+        // 11. “The payment was successfully submitted.” mesajinin ciktigini test edin
+        String expectedMessage = "The payment was successfully submitted.";
+        String actualMessage = zeroPracticePage.warningText.getText();
+        Assert.assertEquals(actualMessage, expectedMessage);
         Driver.quitDriver();
     }
 }
