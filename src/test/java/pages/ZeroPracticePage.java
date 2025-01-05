@@ -29,4 +29,7 @@ public class ZeroPracticePage {
     @FindBy(id = "pay_bills_link")
     public WebElement payBillsLink;
 
+    @FindBy(id = "sp_amount")
+    public WebElement amountKutusu;
+
 }

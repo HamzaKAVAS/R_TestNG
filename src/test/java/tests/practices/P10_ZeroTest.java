@@ -45,6 +45,8 @@ public class P10_ZeroTest {
         zeroPracticePage.payBillsLink.click();
 
         // 8. amount kismina yatirmak istediginiz herhangi bir miktari yazin
+        zeroPracticePage.amountKutusu.sendKeys("50");
+
         // 9. tarih kismina “2023-09-10” yazdirin
         // 10. Pay buttonuna tiklayin
         // 11. “The payment was successfully submitted.” mesajinin ciktigini test edin
