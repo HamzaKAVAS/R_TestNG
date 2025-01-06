@@ -1,5 +1,6 @@
 package tests.practices;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SauceDemoPage;
 import utilities.ConfigReader;
@@ -19,7 +20,7 @@ public class P12_SauceTest {
     // 9. Sayfayi kapatin
 
     @Test
-    public void sauceTest(){
+    public void sauceTest() {
         // 1. “https://www.saucedemo.com/” Adresine gidin
         Driver.getDriver().get(ConfigReader.getProperty("sauceUrl"));
         SauceDemoPage sauceDemoPage = new SauceDemoPage();
@@ -34,9 +35,19 @@ public class P12_SauceTest {
         sauceDemoPage.sauceAnasayfaLoginButonu.click();
 
         // 5. Ilk urunun ismini kaydedin ve bu urunun sayfasina gidin
+        String ilkUrununIsmi = sauceDemoPage.ilkUrunYazisiElementi.getText();
+        sauceDemoPage.ilkUrunYazisiElementi.click();
+
         // 6. Add to Cart butonuna basin
+        sauceDemoPage.addToCartButonu.click();
+
         // 7. Alisveris sepetine tiklayin
+        sauceDemoPage.alisverisSepetiButonu.click();
+
         // 8. Sectiginiz urunun basarili olarak sepete eklendigini control edin
+        String actualSepettekiUrunIsmi = sauceDemoPage.sepettekiUrunElementi.getText();
+        Assert.assertEquals(actualSepettekiUrunIsmi, ilkUrununIsmi);
+
         // 9. Sayfayi kapatin
         Driver.quitDriver();
     }
