@@ -7,13 +7,18 @@ import utilities.Driver;
 
 public class GooglePage {
 
-    public GooglePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public GooglePage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(id = "APjFqb")
     public WebElement googleAramaKutusu;
 
+    @FindBy(id = "hdtb-tls")
+    public WebElement araclarButonu;
+
+    @FindBy(id = "result-stats")
+    public WebElement sonucYazisiElementi;
 
 
 }
