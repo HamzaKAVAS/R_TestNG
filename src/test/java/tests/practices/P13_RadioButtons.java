@@ -14,7 +14,7 @@ public class P13_RadioButtons {
     // c. Iki farkli test method’u oluşturup yazidan veya direk buton’dan size uygun olani secin
     // d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
 
-    @Test
+    @Test(priority = 3)
     public void radioButtonsTest() {
         // a. Verilen web sayfasına gidin https://testotomasyonu.com/form
         Driver.getDriver().get(ConfigReader.getProperty("toForm"));
@@ -29,6 +29,24 @@ public class P13_RadioButtons {
         Assert.assertTrue(toFormPage.erkekButtonu.isSelected());
         Assert.assertFalse(toFormPage.kadinButtonu.isSelected());
         Assert.assertFalse(toFormPage.digerButtonu.isSelected());
+        Driver.quitDriver();
+    }
+
+    @Test(priority = 5)
+    public void radioButtonsTextTest() {
+        // a. Verilen web sayfasına gidin https://testotomasyonu.com/form
+        Driver.getDriver().get(ConfigReader.getProperty("toForm"));
+
+        // b. Cinsiyet Radio button elementlerini locate edin
+        TOFormPage toFormPage = new TOFormPage();
+
+        // c. Iki farkli test method’u oluşturup yazidan veya direk buton’dan size uygun olani secin
+        toFormPage.erkekTextButton.click();
+
+        // d. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
+        Assert.assertFalse(toFormPage.kadinTextButton.isSelected());
+        Assert.assertTrue(toFormPage.erkekTextButton.isSelected());
+        Assert.assertFalse(toFormPage.digerTextButton.isSelected());
         Driver.quitDriver();
     }
 }
