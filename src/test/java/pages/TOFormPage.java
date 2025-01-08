@@ -29,4 +29,13 @@ public class TOFormPage {
     @FindBy(xpath = "//*[.='Diğer']")
     public WebElement digerTextButton;
 
+    @FindBy(xpath = "(//select[@*='form-control'])[1]")
+    public WebElement gunDdm;
+
+    @FindBy(xpath = "(//select[@*='form-control'])[2]")
+    public WebElement ayDdm;
+
+    @FindBy(xpath = "(//select[@*='form-control'])[3]")
+    public WebElement yilDdm;
+
 }
