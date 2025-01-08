@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class TOFormPage {
 
     public TOFormPage(){
@@ -37,5 +39,8 @@ public class TOFormPage {
 
     @FindBy(xpath = "(//select[@*='form-control'])[3]")
     public WebElement yilDdm;
+
+    @FindBy(xpath = "(//select[@*='form-control'])[2]")
+    public List<WebElement> ayDdmList;
 
 }
