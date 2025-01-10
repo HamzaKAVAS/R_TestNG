@@ -41,4 +41,25 @@ public class ZeroPracticePage {
     @FindBy(id = "alert_content")
     public WebElement warningText;
 
+    @FindBy(xpath = "//a[.='Purchase Foreign Currency']")
+    public WebElement purchaseForeignCurrencyButtonu;
+
+    @FindBy(id = "pc_currency")
+    public WebElement currencyDdm;
+
+    @FindBy(id = "pc_amount")
+    public WebElement amountKutusuCurrency;
+
+    @FindBy(id = "pc_inDollars_true")
+    public WebElement usDollarsRadio;
+
+    @FindBy(id = "pc_inDollars_false")
+    public WebElement selectedCurrency;
+
+    @FindBy(id = "pc_calculate_costs")
+    public WebElement calculateCostsButonu;
+
+    @FindBy(id = "purchase_cash")
+    public WebElement purchaseButonu;
+
 }
