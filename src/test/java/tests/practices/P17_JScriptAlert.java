@@ -45,5 +45,22 @@ public class P17_JScriptAlert {
         Driver.quitDriver();
     }
 
+    @Test
+    public void test02(){
+        // 2.Test
+        //   - https://testotomasyonu.com/javascriptAlert adresine gidin
+        Driver.getDriver().get(ConfigReader.getProperty("toJScript"));
+        TOJScriptPage tojScriptPage = new TOJScriptPage();
+
+        //   - 2.alert'e tiklayalim
+        tojScriptPage.jsConfirmButonu.click();
+
+        //   - Cancel'a basip, cikan sonuc yazisinin "You clicked: Cancel" oldugunu test edin
+        Driver.getDriver().switchTo().alert().dismiss();
+        String expectedText = "You clicked: Cancel";
+        String actualText = tojScriptPage.resultYazisiElementi.getText();
+        Assert.assertEquals(actualText,expectedText);
+        Driver.quitDriver();
+    }
 
 }

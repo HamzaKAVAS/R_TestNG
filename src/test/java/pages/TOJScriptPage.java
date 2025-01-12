@@ -20,5 +20,8 @@ public class TOJScriptPage {
     @FindBy(xpath = "(//*[@*='j-button'])[3]")
     public WebElement jsPromptButonu;
 
+    @FindBy(id = "result")
+    public WebElement resultYazisiElementi;
+
 
 }
