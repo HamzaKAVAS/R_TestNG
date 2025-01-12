@@ -52,5 +52,7 @@ public class TOPracticePage {
     @FindBy(id = "priceproduct")
     public WebElement ilkUrunuTikladigindaUrunFiyatiYazisi;
 
+    @FindBy(xpath = "//*[.='Basic Auth']")
+    public WebElement basicAuthYaziElementi;
 
 }
