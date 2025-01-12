@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class TOJScriptPage {
 
-    public TOJScriptPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public TOJScriptPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(xpath = "(//*[@*='j-button'])[1]")
@@ -22,6 +22,5 @@ public class TOJScriptPage {
 
     @FindBy(id = "result")
     public WebElement resultYazisiElementi;
-
 
 }

@@ -46,7 +46,7 @@ public class P17_JScriptAlert {
     }
 
     @Test
-    public void test02(){
+    public void test02() {
         // 2.Test
         //   - https://testotomasyonu.com/javascriptAlert adresine gidin
         Driver.getDriver().get(ConfigReader.getProperty("toJScript"));
@@ -59,8 +59,30 @@ public class P17_JScriptAlert {
         Driver.getDriver().switchTo().alert().dismiss();
         String expectedText = "You clicked: Cancel";
         String actualText = tojScriptPage.resultYazisiElementi.getText();
-        Assert.assertEquals(actualText,expectedText);
+        Assert.assertEquals(actualText, expectedText);
         Driver.quitDriver();
     }
 
+    @Test
+    public void test03() {
+        // 3.Test
+        //   - https://testotomasyonu.com/javascriptAlert adresine gidin
+        Driver.getDriver().get(ConfigReader.getProperty("toJScript"));
+        TOJScriptPage tojScriptPage = new TOJScriptPage();
+
+        //   - 3.alert'e tiklayalim
+        tojScriptPage.jsPromptButonu.click();
+
+        //   - Cikan prompt ekranina "Abdullah" yazdiralim
+        Driver.getDriver().switchTo().alert().sendKeys("Abdullah");
+
+        //   - OK tusuna basarak alert'i kapatalim
+        Driver.getDriver().switchTo().alert().accept();
+
+        //   - Cikan sonuc yazisinin Abdullah icerdigini test edelim
+        String expectedTextIcerik = "Abdullah";
+        String actualText = tojScriptPage.resultYazisiElementi.getText();
+        Assert.assertTrue(actualText.contains(expectedTextIcerik));
+        Driver.quitDriver();
+    }
 }
