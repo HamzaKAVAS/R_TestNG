@@ -21,7 +21,7 @@ public class P21_WindowHandle {
     // 8- Url’in addremove icerdigini test edin.
 
     @Test
-    public void windowHandleTest(){
+    public void windowHandleTest() {
         // 1- https://testotomasyonu.com/addremove/ adresine gidin.
         Driver.getDriver().get(ConfigReader.getProperty("toAddRemove"));
         TOPracticePage toPracticePage = new TOPracticePage();
@@ -37,24 +37,35 @@ public class P21_WindowHandle {
 
         // 4- ’Please click for Electronics Products’ linkine tiklayin.
         toPracticePage.electronicsProductsLinki.click();
-        ReusableMethods.bekle(2);
 
         // 5- Electronics sayfasinin acildigini test edin.
         String ikinciWhd = "";
         Set<String> windowHandlesDegerleri = Driver.driver.getWindowHandles();
-        for (String eachWhd : windowHandlesDegerleri){
-            if (!eachWhd.equals(ilkWhd)){
+        for (String eachWhd : windowHandlesDegerleri) {
+            if (!eachWhd.equals(ilkWhd)) {
                 ikinciWhd = eachWhd;
             }
         }
         Driver.getDriver().switchTo().window(ikinciWhd);
         String expectedUrlText = "https://testotomasyonu.com/category/7/products";
         String actualUrlText = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(actualUrlText,expectedUrlText);
+        Assert.assertEquals(actualUrlText, expectedUrlText);
 
         // 6- Bulunan urun sayisinin 16 olduğunu test edin.
+        String urunSayisiElementiText = toPracticePage.aramaSonucuElementi.getText(); // 16 Products Found
+        urunSayisiElementiText = urunSayisiElementiText.replaceAll("\\D", ""); // 16
+        int actualUrunSayisi = Integer.parseInt(urunSayisiElementiText); // 16 (int)
+        int expectedUrunSayisi = 16;
+        Assert.assertEquals(actualUrunSayisi, expectedUrunSayisi);
+
         // 7- Ilk actiginiz addremove sayfasina donun.
+        Driver.getDriver().switchTo().window(ilkWhd);
+        ReusableMethods.bekle(2);
+
         // 8- Url’in addremove icerdigini test edin.
+        String expectedUrlIcerik = "addremove";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(expectedUrlIcerik));
         Driver.quitDriver();
     }
 }
