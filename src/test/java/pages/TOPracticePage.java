@@ -55,4 +55,7 @@ public class TOPracticePage {
     @FindBy(xpath = "//*[.='Basic Auth']")
     public WebElement basicAuthYaziElementi;
 
+    @FindBy(xpath = "//*[.='Electronics Products']")
+    public WebElement electronicsProductsLinki;
+
 }
