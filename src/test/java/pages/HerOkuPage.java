@@ -14,4 +14,10 @@ public class HerOkuPage {
     @FindBy(id = "dropdown")
     public WebElement optionsDdm;
 
+    @FindBy(tagName = "h3")
+    public WebElement openingANewWindowYaziElementi;
+
+    @FindBy(xpath = "//*[.='Click Here']")
+    public WebElement clickHereLinki;
+
 }
