@@ -15,7 +15,7 @@ public class HerOkuPage {
     public WebElement optionsDdm;
 
     @FindBy(tagName = "h3")
-    public WebElement openingANewWindowYaziElementi;
+    public WebElement h3TagYaziElementi;
 
     @FindBy(xpath = "//*[.='Click Here']")
     public WebElement clickHereLinki;

@@ -20,7 +20,7 @@ public class P22_WindowHandle {
     // 7- Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu doğrulayın.
 
     @Test
-    public void windowHandleHerOkuTesti(){
+    public void windowHandleHerOkuTesti() {
         // 1- https://the-internet.herokuapp.com/windows adresine gidin.
         Driver.getDriver().get(ConfigReader.getProperty("herOkuWhdUrl"));
         HerOkuPage herOkuPage = new HerOkuPage();
@@ -28,33 +28,40 @@ public class P22_WindowHandle {
 
         // 2- Sayfadaki textin “Opening a new window” olduğunu doğrulayın.
         String expectedText = "Opening a new window";
-        String actualText = herOkuPage.openingANewWindowYaziElementi.getText();
-        Assert.assertEquals(actualText,expectedText);
+        String actualText = herOkuPage.h3TagYaziElementi.getText();
+        Assert.assertEquals(actualText, expectedText);
 
         // 3- Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
         String expectedTitle = "The Internet";
         String actualTitle = Driver.getDriver().getTitle();
-        Assert.assertEquals(actualTitle,expectedTitle);
+        Assert.assertEquals(actualTitle, expectedTitle);
 
         // 4- Click Here butonuna basın.
         herOkuPage.clickHereLinki.click();
-        ReusableMethods.bekle(2);
 
         // 5- Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
         String ikinciWhd = "";
         Set<String> windowHandlesDegerleri = Driver.getDriver().getWindowHandles();
-        for (String eachWhd : windowHandlesDegerleri){
-            if (!eachWhd.equals(ilkWhd)){
+        for (String eachWhd : windowHandlesDegerleri) {
+            if (!eachWhd.equals(ilkWhd)) {
                 ikinciWhd = eachWhd;
             }
         }
         Driver.getDriver().switchTo().window(ikinciWhd);
         expectedTitle = "New Window";
         actualTitle = Driver.getDriver().getTitle();
-        Assert.assertEquals(actualTitle,expectedTitle);
+        Assert.assertEquals(actualTitle, expectedTitle);
 
         // 6- Sayfadaki textin “New Window” olduğunu doğrulayın.
+        expectedText = "New Window";
+        actualText = herOkuPage.h3TagYaziElementi.getText();
+        Assert.assertEquals(actualText, expectedText);
+
         // 7- Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu doğrulayın.
+        Driver.getDriver().switchTo().window(ilkWhd);
+        expectedTitle = "The Internet";
+        actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(actualTitle, expectedTitle);
         Driver.quitDriver();
     }
 }
