@@ -58,4 +58,7 @@ public class TOPracticePage {
     @FindBy(xpath = "//*[.='Electronics Products']")
     public WebElement electronicsProductsLinki;
 
+    @FindBy(id = "hot-spot")
+    public WebElement dgiDronesPaintingElementi;
+
 }
