@@ -20,4 +20,7 @@ public class HerOkuPage {
     @FindBy(xpath = "//*[.='Click Here']")
     public WebElement clickHereLinki;
 
+    @FindBy(id = "hot-spot")
+    public WebElement ciziliAlanElementi;
+
 }
