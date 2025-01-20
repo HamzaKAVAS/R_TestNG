@@ -23,4 +23,10 @@ public class HerOkuPage {
     @FindBy(id = "hot-spot")
     public WebElement ciziliAlanElementi;
 
+    @FindBy(xpath = "//*[@*='_blank']")
+    public WebElement elementalSeleniumLinki;
+
+    @FindBy(tagName = "h1")
+    public WebElement h1tagElement;
+
 }

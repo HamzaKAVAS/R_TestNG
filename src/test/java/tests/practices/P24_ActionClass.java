@@ -15,10 +15,10 @@ public class P24_ActionClass {
     // 3- Alert’te cikan yazinin “You selected a context menu” oldugunu test edin.
     // 4- Tamam diyerek alert’i kapatalim
     // 5- Elemental Selenium linkine tiklayalim
-    // 6- Acilan sayfada h1 taginda “Make sure your code lands” yazdigini test edelim
+    // 6- Acilan sayfada h1 taginda “Make sure your code lands” yazmadigini test edelim
 
     @Test
-    public void actionClassTest(){
+    public void actionClassTest() {
         // 1- https://the-internet.herokuapp.com/context_menu sitesine gidin
         Driver.getDriver().get(ConfigReader.getProperty("herOkuActionsUrl"));
         HerOkuPage herOkuPage = new HerOkuPage();
@@ -30,14 +30,18 @@ public class P24_ActionClass {
         // 3- Alert’te cikan yazinin “You selected a context menu” oldugunu test edin.
         String expectedAlertText = "You selected a context menu";
         String actualAlertText = Driver.getDriver().switchTo().alert().getText();
-        Assert.assertEquals(actualAlertText,expectedAlertText);
+        Assert.assertEquals(actualAlertText, expectedAlertText);
 
         // 4- Tamam diyerek alert’i kapatalim
         Driver.getDriver().switchTo().alert().accept();
-        ReusableMethods.bekle(2);
 
         // 5- Elemental Selenium linkine tiklayalim
-        // 6- Acilan sayfada h1 taginda “Make sure your code lands” yazdigini test edelim
+        herOkuPage.elementalSeleniumLinki.click();
+
+        // 6- Acilan sayfada h1 taginda “Make sure your code lands” yazmadigini test edelim
+        String unExpectedText = "Make sure your code lands";
+        String actualText = herOkuPage.h3TagYaziElementi.getText();
+        Assert.assertNotEquals(actualText, unExpectedText);
         Driver.quitDriver();
     }
 }
