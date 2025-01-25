@@ -1,5 +1,6 @@
 package tests.practices;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HerOkuPage;
 import utilities.ConfigReader;
@@ -15,7 +16,7 @@ public class P25_FileUpload {
     // 5. “File Uploaded!” textinin goruntulendigini test edelim.
 
     @Test
-    public void photoUploadTest(){
+    public void photoUploadTest() {
         // 1. https://the-internet.herokuapp.com/upload adresine gidelim
         Driver.getDriver().get(ConfigReader.getProperty("herOkuPhotoUploadUrl"));
         HerOkuPage herOkuPage = new HerOkuPage();
@@ -27,7 +28,11 @@ public class P25_FileUpload {
         ReusableMethods.bekle(2);
 
         // 4. Upload butonuna basalim.
+        herOkuPage.uploadButton.click();
+        ReusableMethods.bekle(2);
+
         // 5. “File Uploaded!” textinin goruntulendigini test edelim.
+        Assert.assertTrue(herOkuPage.fileUploadedTextElement.isDisplayed());
         Driver.quitDriver();
     }
 }
