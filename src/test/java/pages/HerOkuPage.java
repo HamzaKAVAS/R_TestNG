@@ -32,4 +32,10 @@ public class HerOkuPage {
     @FindBy(id = "file-upload")
     public WebElement chooseFileButton;
 
+    @FindBy(id = "file-submit")
+    public WebElement uploadButton;
+
+    @FindBy(tagName = "h3")
+    public WebElement fileUploadedTextElement;
+
 }
