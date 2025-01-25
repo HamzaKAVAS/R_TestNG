@@ -29,4 +29,7 @@ public class HerOkuPage {
     @FindBy(tagName = "h1")
     public WebElement h1tagElement;
 
+    @FindBy(id = "file-upload")
+    public WebElement chooseFileButton;
+
 }
