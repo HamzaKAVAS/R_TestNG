@@ -18,26 +18,32 @@ public class P26_ActionClass {
     // 6- “Drop Here” yazisinin degismedigini test edin
 
     @Test
-    public void actionDropTest(){
+    public void actionDropTest() {
         // 1- https://testotomasyonu.com/droppable adresine gidelim
         Driver.getDriver().get(ConfigReader.getProperty("toDroppableUrl"));
         Actions actions = new Actions(Driver.getDriver());
         TOPracticePage toPracticePage = new TOPracticePage();
 
         // 2- Accept bolumunde “Acceptable” butonunu tutup “Drop Here” kutusunun ustune birakalim
-        actions.dragAndDrop(toPracticePage.acceptableBoxElement,toPracticePage.dropHereBoxElement).perform();
         ReusableMethods.bekle(2);
+        actions.dragAndDrop(toPracticePage.acceptableBoxElement, toPracticePage.dropHereBoxElement).perform();
 
         // 3- “Drop here” yazisi yerine “Dropped!” oldugunu test edin
         String expectedText = "Dropped!";
         String actualText = toPracticePage.dropHereBoxElement.getText();
-        Assert.assertEquals(actualText,expectedText);
+        Assert.assertEquals(actualText, expectedText);
 
         // 4- Sayfayi yenileyin
         Driver.getDriver().navigate().refresh();
 
         // 5- “Not Acceptable” butonunu tutup “Drop Here” kutusunun ustune birakalim
+        ReusableMethods.bekle(2);
+        actions.dragAndDrop(toPracticePage.notAcceptableBoxElement, toPracticePage.dropHereBoxElement).perform();
+
         // 6- “Drop Here” yazisinin degismedigini test edin
+        expectedText = "Drop Here";
+        actualText = toPracticePage.dropHereBoxElement.getText();
+        Assert.assertEquals(actualText, expectedText);
         Driver.quitDriver();
     }
 }

@@ -67,4 +67,7 @@ public class TOPracticePage {
     @FindBy(id = "droppable2")
     public WebElement dropHereBoxElement;
 
+    @FindBy(id = "draggable-nonvalid2")
+    public WebElement notAcceptableBoxElement;
+
 }
