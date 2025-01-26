@@ -61,4 +61,10 @@ public class TOPracticePage {
     @FindBy(id = "hot-spot")
     public WebElement dgiDronesPaintingElementi;
 
+    @FindBy(id = "draggable2")
+    public WebElement acceptableBoxElement;
+
+    @FindBy(id = "droppable2")
+    public WebElement dropHereBoxElement;
+
 }
