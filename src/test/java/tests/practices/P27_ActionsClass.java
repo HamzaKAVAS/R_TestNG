@@ -1,6 +1,7 @@
 package tests.practices;
 
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DemoqaPage;
 import utilities.ConfigReader;
@@ -14,19 +15,20 @@ public class P27_ActionsClass {
     // 3- “Drop here” yazisi yerine “Dropped!” oldugunu test edin
 
     @Test
-    public void demoqaActionsTest(){
+    public void demoqaActionsTest() {
         // 1- https://demoqa.com/droppable adresine gidelim
         Driver.getDriver().get(ConfigReader.getProperty("demoqaDroppableUrl"));
         DemoqaPage demoqaPage = new DemoqaPage();
         Actions actions = new Actions(Driver.getDriver());
 
         // 2- “Drag me” butonunu tutup “Drop here” kutusunun ustune birakalim
-        actions.dragAndDrop(demoqaPage.dragMeBoxElement,demoqaPage.dropHereBoxElement).perform();
+        actions.dragAndDrop(demoqaPage.dragMeBoxElement, demoqaPage.dropHereBoxElement).perform();
         ReusableMethods.bekle(1);
 
         // 3- “Drop here” yazisi yerine “Dropped!” oldugunu test edin
-
-
+        String expectedText = "Dropped!";
+        String actualText = demoqaPage.droppedTextElement.getText();
+        Assert.assertEquals(actualText, expectedText);
         Driver.quitDriver();
     }
 }

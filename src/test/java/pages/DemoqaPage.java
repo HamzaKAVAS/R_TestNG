@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class DemoqaPage {
 
-    public DemoqaPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public DemoqaPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(id = "draggable")
@@ -16,4 +16,7 @@ public class DemoqaPage {
 
     @FindBy(xpath = "(//*[@*='drop-box ui-droppable'])[1]")
     public WebElement dropHereBoxElement;
+
+    @FindBy(xpath = "//p[.='Dropped!']")
+    public WebElement droppedTextElement;
 }
