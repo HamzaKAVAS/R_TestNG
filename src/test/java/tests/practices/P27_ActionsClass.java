@@ -1,6 +1,7 @@
 package tests.practices;
 
 import org.testng.annotations.Test;
+import pages.DemoqaPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -14,6 +15,7 @@ public class P27_ActionsClass {
     public void demoqaActionsTest(){
         // 1- https://demoqa.com/droppable adresine gidelim
         Driver.getDriver().get(ConfigReader.getProperty("demoqaDroppableUrl"));
+        DemoqaPage demoqaPage = new DemoqaPage();
 
         // 2- “Drag me” butonunu tutup “Drop here” kutusunun ustune birakalim
 
