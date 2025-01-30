@@ -1,6 +1,8 @@
 package tests.practices;
 
 import org.testng.annotations.Test;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class P27_ActionsClass {
 
@@ -11,7 +13,12 @@ public class P27_ActionsClass {
     @Test
     public void demoqaActionsTest(){
         // 1- https://demoqa.com/droppable adresine gidelim
+        Driver.getDriver().get(ConfigReader.getProperty("demoqaDroppableUrl"));
+
         // 2- “Drag me” butonunu tutup “Drop here” kutusunun ustune birakalim
+
+
         // 3- “Drop here” yazisi yerine “Dropped!” oldugunu test edin
+        Driver.quitDriver();
     }
 }
