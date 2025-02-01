@@ -1,6 +1,7 @@
 package tests.practices;
 
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
@@ -16,7 +17,7 @@ public class P28_ActionClass {
     // 5- Acilan sayfada urun isminin “Boys Shirt White Color” oldugunu test edin
 
     @Test
-    public void testotomasyonuActionsTest(){
+    public void testotomasyonuActionsTest() {
         // 1- https://www.testotomasyonu.com/ adresine gidin
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
         Actions actions = new Actions(Driver.getDriver());
@@ -32,7 +33,9 @@ public class P28_ActionClass {
         testotomasyonuPage.firstElement.click();
 
         // 5- Acilan sayfada urun isminin “Boys Shirt White Color” oldugunu test edin
-
+        String expectedUrunText = "Boys Shirt White Color";
+        String actualUrunText = testotomasyonuPage.firstTextElement.getText();
+        Assert.assertEquals(actualUrunText, expectedUrunText);
         Driver.quitDriver();
     }
 }
