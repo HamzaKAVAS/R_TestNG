@@ -46,4 +46,7 @@ public class TestotomasyonuPage {
 
     @FindBy(xpath = "//*[.='Boys']")
     public WebElement boysElement;
+
+    @FindBy(xpath = "//*[.='Boys Shirt White Color']")
+    public WebElement firstElement;
 }

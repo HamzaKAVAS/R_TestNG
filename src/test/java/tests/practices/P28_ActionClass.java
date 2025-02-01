@@ -24,13 +24,15 @@ public class P28_ActionClass {
 
         // 2- “Kids Wear” menusunun acilmasi icin mouse’u bu menunun ustune getirin
         actions.moveToElement(testotomasyonuPage.kidsWearElement).perform();
-        ReusableMethods.bekle(2);
 
         // 3- “Boys” linkine basin
         testotomasyonuPage.boysElement.click();
 
         // 4- Acilan sayfadaki ilk urunu tiklayin
+        testotomasyonuPage.firstElement.click();
+
         // 5- Acilan sayfada urun isminin “Boys Shirt White Color” oldugunu test edin
+
         Driver.quitDriver();
     }
 }
