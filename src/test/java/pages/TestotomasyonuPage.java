@@ -52,4 +52,7 @@ public class TestotomasyonuPage {
 
     @FindBy(xpath = "//*[@*=' heading-sm mb-4']")
     public WebElement firstTextElement;
+
+    @FindBy(xpath = "//*[@*='prod-title mb-3 ']")
+    public WebElement dellCoreI3FirstElement;
 }
