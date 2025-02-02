@@ -27,8 +27,15 @@ public class P29_KeyboardAction {
                 .sendKeys("dell")
                 .keyDown(Keys.SPACE)
                 .keyDown(Keys.SHIFT)
-                .sendKeys("c").perform();
-        ReusableMethods.bekle(1);
+                .sendKeys("c")
+                .keyUp(Keys.SHIFT)
+                .sendKeys("ore")
+                .keyDown(Keys.SPACE)
+                .keyDown(Keys.SHIFT)
+                .sendKeys("i")
+                .keyUp(Keys.SHIFT)
+                .keyDown(Keys.NUMPAD3).perform();
+        ReusableMethods.bekle(2);
 
         // 3- Bulunan urun isminde “DELL Core I3” bulundugunu test edin
         Driver.quitDriver();
