@@ -22,9 +22,11 @@ public class P30_KeyboardAction {
         Actions actions = new Actions(Driver.getDriver());
 
         // 2- Account linkine tiklayin
-
+        testotomasyonuPage.accountlinkButton.click();
 
         // 3- Sign Up linkine basalim
+
+
         // 4- Ad, soyad, mail ve sifre kutularina deger yazalim ve Sign Up butonuna basalim
         // 5- Kaydin olusturuldugunu test edin
     }
