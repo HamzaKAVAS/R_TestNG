@@ -1,10 +1,12 @@
 package tests.practices;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class P30_KeyboardAction {
 
@@ -28,7 +30,8 @@ public class P30_KeyboardAction {
         testotomasyonuPage.signUpButton.click();
 
         // 4- Ad, soyad, mail ve sifre kutularina deger yazalim ve Sign Up butonuna basalim
-
+        ReusableMethods.bekle(2);
+        actions.sendKeys(testotomasyonuPage.firstNameBoxElement,"Hayri" + Keys.TAB).perform();
 
         // 5- Kaydin olusturuldugunu test edin
     }
