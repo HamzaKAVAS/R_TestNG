@@ -55,4 +55,10 @@ public class TestotomasyonuPage {
 
     @FindBy(xpath = "//*[@*='prod-title mb-3 ']")
     public WebElement dellCoreI3FirstElement;
+
+    @FindBy(id = "firstName")
+    public WebElement firstNameBoxElement;
+
+    @FindBy(id = "btn-submit-form")
+    public WebElement formSignUpButtonElement;
 }
