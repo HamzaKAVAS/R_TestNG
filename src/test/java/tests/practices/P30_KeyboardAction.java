@@ -3,6 +3,7 @@ package tests.practices;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
@@ -18,7 +19,7 @@ public class P30_KeyboardAction {
     // 5- Kaydin olusturuldugunu test edin
 
     @Test
-    public void testOtomasyonuRegisterTest(){
+    public void testOtomasyonuRegisterTest() {
         // 1- https://www.testotomasyonu.com adresine gidelim
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
         TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
@@ -35,7 +36,7 @@ public class P30_KeyboardAction {
 
         // 4- Ad, soyad, mail ve sifre kutularina deger yazalim ve Sign Up butonuna basalim
         ReusableMethods.bekle(1);
-        actions.sendKeys(testotomasyonuPage.firstNameBoxElement,"Hayri" + Keys.TAB).perform();
+        actions.sendKeys(testotomasyonuPage.firstNameBoxElement, "Hayri" + Keys.TAB).perform();
         actions.sendKeys("KORU" + Keys.TAB).perform();
         actions.sendKeys(fakeMail + Keys.TAB).perform();
         actions.sendKeys(password + Keys.TAB).perform();
@@ -44,5 +45,10 @@ public class P30_KeyboardAction {
         testotomasyonuPage.formSignUpButtonElement.click();
 
         // 5- Kaydin olusturuldugunu test edin
+        testotomasyonuPage.emailKutusu.sendKeys(fakeMail);
+        testotomasyonuPage.passwordKutusu.sendKeys(password);
+        testotomasyonuPage.signInButton.click();
+        Assert.assertTrue(testotomasyonuPage.LogoutButton.isDisplayed());
+        Driver.quitDriver();
     }
 }
