@@ -25,9 +25,11 @@ public class P30_KeyboardAction {
         testotomasyonuPage.accountlinkButton.click();
 
         // 3- Sign Up linkine basalim
-
+        testotomasyonuPage.signUpButton.click();
 
         // 4- Ad, soyad, mail ve sifre kutularina deger yazalim ve Sign Up butonuna basalim
+
+
         // 5- Kaydin olusturuldugunu test edin
     }
 }
