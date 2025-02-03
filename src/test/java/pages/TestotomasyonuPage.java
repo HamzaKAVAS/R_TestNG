@@ -59,6 +59,6 @@ public class TestotomasyonuPage {
     @FindBy(xpath = "(//*[@*='form-control'])[1]")
     public WebElement firstNameBoxElement;
 
-    @FindBy(id = "btn-submit-form")
+    @FindBy(xpath = "//*[@*='btn-submit-form']")
     public WebElement formSignUpButtonElement;
 }
