@@ -28,4 +28,7 @@ public class FacebookPage {
 
     @FindBy(xpath = "//*[@*='firstname']")
     public WebElement firstNameBox;
+
+    @FindBy(name = "websubmit")
+    public WebElement submitButton;
 }

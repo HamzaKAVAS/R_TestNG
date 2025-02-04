@@ -26,19 +26,21 @@ public class P31_FacebookKeyboardActions {
     // 13. Sayfayi kapatin.
 
     @Test
-    public void facebookActionsTest(){
+    public void facebookActionsTest() {
         // 1. "https://facebook.com" Adresine gidin.
         Driver.getDriver().get(ConfigReader.getProperty("faceUrl"));
         FacebookPage facebookPage = new FacebookPage();
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
+        String mail = faker.internet().emailAddress();
+        String password = faker.internet().password();
 
         // 2. “create new account” butonuna basin.
         facebookPage.createNewAccount.click();
 
         // 3. “firstName” giris kutusuna bir isim yazin.
         ReusableMethods.bekle(1);
-        actions.sendKeys(facebookPage.firstNameBox,faker.harryPotter().character() + Keys.TAB).perform();
+        actions.sendKeys(facebookPage.firstNameBox, faker.harryPotter().character() + Keys.TAB).perform();
 
         // 4. “surname” giris kutusuna bir soyisim yazin.
         actions.sendKeys(faker.name().lastName() + Keys.TAB).perform();
@@ -56,14 +58,19 @@ public class P31_FacebookKeyboardActions {
 
         // 8. Cinsiyeti secin.
         actions.sendKeys(Keys.ARROW_RIGHT).perform();
-        ReusableMethods.bekle(2);
+        actions.sendKeys(Keys.TAB).perform();
 
         // 9. “email” giris kutusuna bir email yazin.
-
-
         // 10. “email” onay kutusuna emaili tekrar yazin.
+        actions.sendKeys(mail + Keys.TAB).perform();
+
         // 11. Bir sifre girin.
+        actions.sendKeys(password).perform();
+
         // 12. Kaydol tıklayın.
+        facebookPage.submitButton.click();
+        ReusableMethods.bekle(2);
+
         // 13. Sayfayi kapatin.
         Driver.quitDriver();
     }
