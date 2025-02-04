@@ -22,4 +22,10 @@ public class FacebookPage {
 
     @FindBy(id = "loginbutton")
     public WebElement nextPageLoginButton;
+
+    @FindBy(xpath = "(//*[@*='button'])[2]")
+    public WebElement createNewAccount;
+
+    @FindBy(xpath = "//*[@*='firstname']")
+    public WebElement firstNameBox;
 }
