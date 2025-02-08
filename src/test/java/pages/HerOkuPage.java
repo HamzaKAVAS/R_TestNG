@@ -38,4 +38,7 @@ public class HerOkuPage {
     @FindBy(tagName = "h3")
     public WebElement fileUploadedTextElement;
 
+    @FindBy(xpath = "//*[.='pic.jpeg']")
+    public WebElement picJpegElement;
+
 }
